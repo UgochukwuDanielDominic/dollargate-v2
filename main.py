@@ -201,7 +201,7 @@ def seed():
     finally: db.close()
 
 # ── ROUTES ──────────────────────────────────────────────────────────
-@app.get("/"); 
+@app.get("/")
 def root(): return {"status":"DollarGate API v2","docs":"/docs"}
 
 @app.get("/health")
