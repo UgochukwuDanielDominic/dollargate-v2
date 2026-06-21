@@ -93,7 +93,7 @@ Base.metadata.create_all(bind=engine)
 pwd_ctx = CryptContext(schemes=["bcrypt"], deprecated="auto")
 bearer  = HTTPBearer(auto_error=False)
 
-def hash_pw(pw): return pwd_ctx.hash(pw)
+def hash_pw(pw): return pwd_ctx.hash(pw[:72])
 def verify_pw(pw, h): return pwd_ctx.verify(pw, h)
 def make_token(data, minutes):
     p = {**data, "exp": datetime.utcnow() + timedelta(minutes=minutes)}
