@@ -172,7 +172,7 @@ def seed():
     db = SessionLocal()
     try:
         if not db.query(User).filter(User.email=="admin@dollargate.com").first():
-            db.add(User(name="DollarGate Admin",email="admin@dollargate.com",password=hash_pw("admin1234"),is_admin=True))
+            db.add(User(name="DollarGate Admin",email="admin@dollargate.com",password=hash_pw("admin1234"[:72]),is_admin=True))
         cats = [("Watches","watches"),("Sunglasses","sunglasses"),("Eyeglasses","eyeglasses")]
         cat_map = {}
         for name,slug in cats:
